@@ -84,5 +84,9 @@ void launchEditor(LPCTSTR filePath)
 
 void launch(LPCTSTR exePath, LPCTSTR filePath)
 {
-	ShellExecute(NULL, NULL, exePath, filePath, NULL, SW_SHOW);
+	WCHAR args[MAX_PATH];
+
+	wsprintf(args, L"\"%s\"", filePath);
+	
+	ShellExecute(NULL, NULL, exePath, args, NULL, SW_SHOW);
 }
